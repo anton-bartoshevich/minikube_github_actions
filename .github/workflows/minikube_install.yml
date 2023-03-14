@@ -6,17 +6,22 @@ jobs:
   example:
     name: Example Minikube-Kubernetes Cluster interaction
     runs-on: ubuntu-latest
+    outputs:
+     output1: ${{ steps.step1.outputs.test }}
+     output2: ${{ steps.step2.outputs.test }}
     steps:
     - uses: actions/checkout@v2
     - name: Start depoloyment
-      run: echo "Start on $(date "+%Y-%m-%d %H:%M:%S")"
+      id: step1
+      run: echo "Start on $(date "+%Y-%m-%d %H:%M:%S")" >> $GITHUB_OUTPUT
     - name: Start minikube
       uses: medyagh/setup-minikube@master
     - name: Try the cluster !
       run: |
            kubectl get pods -A 
            kubectl version --short
-    - name: Start depoloyment
-      run: echo "Start on $(date "+%Y-%m-%d %H:%M:%S")"
+    - name: Finish depoloyment
+      id: step2
+      run: echo "Start on $(date "+%Y-%m-%d %H:%M:%S")" >> $GITHUB_OUTPUT
       
 
