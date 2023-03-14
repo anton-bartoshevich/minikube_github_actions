@@ -13,7 +13,9 @@ jobs:
     - uses: actions/checkout@v2
     - name: Start depoloyment
       id: step1
-      run: echo -e "Start on start=$(date '+%Y-%m-%d %H:%M:%S')" >> $GITHUB_OUTPUT
+      run: |
+           echo "Start on "$(date "+%Y-%m-%d %H:%M:%S")"
+           echo -e "Start on step1=$(date '+%Y-%m-%d %H:%M:%S')" >> $GITHUB_OUTPUT
     - name: Start minikube
       uses: medyagh/setup-minikube@master
     - name: Try the cluster !
@@ -22,6 +24,8 @@ jobs:
            kubectl version --short
     - name: Finish depoloyment
       id: step2
-      run: echo -e "Finish on end=$(date '+%Y-%m-%d %H:%M:%S')" >> $GITHUB_OUTPUT
+      run: |
+           echo "Finish on "$(date "+%Y-%m-%d %H:%M:%S")"
+           echo -e "Start on step2=$(date '+%Y-%m-%d %H:%M:%S')" >> $GITHUB_OUTPUT
       
 
