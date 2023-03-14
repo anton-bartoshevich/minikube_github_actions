@@ -14,7 +14,7 @@ jobs:
     - name: Start depoloyment
       id: step1
       run: |
-           echo "Start on "$(date "+%Y-%m-%d %H:%M:%S")"
+           echo Start on "$(date "+%Y-%m-%d %H:%M:%S")"
            echo -e "Start on step1=$(date '+%Y-%m-%d %H:%M:%S')" >> $GITHUB_OUTPUT
     - name: Start minikube
       uses: medyagh/setup-minikube@master
@@ -26,6 +26,6 @@ jobs:
       id: step2
       run: |
            echo "Finish on "$(date "+%Y-%m-%d %H:%M:%S")"
-           echo -e "Start on step2=$(date '+%Y-%m-%d %H:%M:%S')" >> $GITHUB_OUTPUT
+           echo -e Finish on step2=$(date '+%Y-%m-%d %H:%M:%S')" >> $GITHUB_OUTPUT
       
 
