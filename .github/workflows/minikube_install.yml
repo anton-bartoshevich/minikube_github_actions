@@ -22,10 +22,11 @@ jobs:
       run: |
            kubectl get pods -A 
            kubectl version --short
-    - name: Finish depoloyment
+    - name: Finish deployment
       id: step2
       run: |
-           echo "Finish on "$(date "+%Y-%m-%d %H:%M:%S")"
+           echo Finish on "$(date "+%Y-%m-%d %H:%M:%S")"
            echo -e Finish on step2=$(date '+%Y-%m-%d %H:%M:%S')" >> $GITHUB_OUTPUT
-      
+    - name: Result
+      run: echo ${{ steps.step1.outputs.step1 }} ${{ steps.step2.outputs.step2 }}
 
