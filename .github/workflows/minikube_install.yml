@@ -1,0 +1,15 @@
+name: CI Minikube
+on:
+   push:
+    branches: [ "main" ]
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Checkout
+      - name: Setup Minikube
+        uses: manusa/actions-setup-minikube@v2.7.2
+      - name: Interact with the cluster
+        run: kubectl get nodes
