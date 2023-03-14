@@ -11,4 +11,9 @@ jobs:
     - name: Start minikube
       uses: medyagh/setup-minikube@master
     - name: Try the cluster !
-      run: kubectl get pods -A
+      run: kubectl get pods -A >> report.log
+      
+    - name: Upload report
+      uses: actions/upload-artifact@v2
+      with:
+       path: report.log
