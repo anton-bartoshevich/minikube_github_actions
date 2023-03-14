@@ -9,7 +9,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Start depoloyment
-      run: echo "Start on $(date "+%Y-%m-%d %H:%M:%S")
+      run: echo "Start on $(date "+%Y-%m-%d %H:%M:%S")"
     - name: Start minikube
       uses: medyagh/setup-minikube@master
     - name: Try the cluster !
@@ -17,6 +17,6 @@ jobs:
            kubectl get pods -A 
            kubectl version --short
     - name: Start depoloyment
-      run: echo "Start on $(date "+%Y-%m-%d %H:%M:%S")
+      run: echo "Start on $(date "+%Y-%m-%d %H:%M:%S")"
       
 
