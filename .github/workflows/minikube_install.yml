@@ -12,7 +12,7 @@ jobs:
     - name: Start depoloyment
       id: step1
       run: |
-           echo "Start on step1=$(date '+%s')" >> $GITHUB_OUTPUT
+           echo "step1=$(date '+%s')" >> $GITHUB_OUTPUT
     - name: Start minikube
       uses: medyagh/setup-minikube@master
     - name: Try the cluster !
