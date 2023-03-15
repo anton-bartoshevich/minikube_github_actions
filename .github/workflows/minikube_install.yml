@@ -6,7 +6,6 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
      output1: ${{ steps.step1.outputs.step1 }}
- 
     steps:
     - uses: actions/checkout@v2
     - name: Start depoloyment
@@ -17,11 +16,11 @@ jobs:
       uses: medyagh/setup-minikube@master
     - name: Try the cluster !
       run: |
-           kubectl get pods -A >> report.log 
-           kubectl version --short >> report.log
+           echo "Amount of pods:\n $(kubectl get pods -A)" >> report.log 
+           echo "Version of minikube:\n $(kubectl version --short)" >> report.log
     - name: Finish deployment
       run: |
-           echo "Time for start cluster: $(($(date '+%s')-${{ steps.step1.outputs.step1 }})) seconds" >> report.log
+           echo "Time for start cluster:\n $(($(date '+%s')-${{ steps.step1.outputs.step1 }})) seconds" >> report.log
     - name: Upload report
       uses: actions/upload-artifact@v3
       with:
