@@ -21,7 +21,7 @@ jobs:
            kubectl version --short >> report.log
     - name: Finish deployment
       run: |
-           echo "The time elapsed:$(($(date '+%s')-${{ steps.step1.outputs.step1 }})) seconds" >> report.log
+           "Time for start cluster: $(($(date '+%s')-${{ steps.step1.outputs.step1 }})) seconds" >> report.log
     - name: Upload report
       uses: actions/upload-artifact@v3
       with:
