@@ -30,7 +30,7 @@ jobs:
        - name: Start deployment KinD
          id: step2
          run: | 
-              echo "step2=$(date '+%s')" >> GITHUB_OUTPUT
+              echo "step2=$(date '+%s')" >> $GITHUB_OUTPUT
        - name: Start Kind
          uses: engineerd/setup-kind@v0.5.0
          with:
