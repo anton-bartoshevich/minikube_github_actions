@@ -1,7 +1,5 @@
 name: Example workflow
-
 on: [push]
-
 jobs:
   example:
     name: Example Minikube-Kubernetes Cluster interaction
@@ -28,5 +26,5 @@ jobs:
            echo Finish on "$(date "+%Y-%m-%d %H:%M:%S")"
            echo -e "Finish on step2=$(date '+%Y-%m-%d %H:%M:%S')" >> $GITHUB_OUTPUT
     - name: Result
-      run: echo ${{ steps.step1.outputs.output1 }} ${{ steps.step2.outputs.output2 }}
+      run: echo ${{ steps.step1.outputs.step1 }} ${{ steps.step2.outputs.step2 }}
 
