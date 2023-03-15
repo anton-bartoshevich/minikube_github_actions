@@ -6,14 +6,13 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
      output1: ${{ steps.step1.outputs.step1 }}
-     output2: ${{ steps.step2.outputs.step2 }}
+ 
     steps:
     - uses: actions/checkout@v2
     - name: Start depoloyment
       id: step1
       run: |
-           echo Start on "$(date "+%Y-%m-%d %H:%M:%S")" >> report.log
-           echo -e "Start on step1=$(date '+%Y-%m-%d %H:%M:%S')" >> $GITHUB_OUTPUT
+           echo "Start on step1=$(date '+%s')" >> $GITHUB_OUTPUT
     - name: Start minikube
       uses: medyagh/setup-minikube@master
     - name: Try the cluster !
@@ -21,10 +20,8 @@ jobs:
            kubectl get pods -A >> report.log 
            kubectl version --short >> report.log
     - name: Finish deployment
-      id: step2
       run: |
-           echo Finish on "$(date "+%Y-%m-%d %H:%M:%S")" >> report.log
-           echo "The time elapsed:$(($(date '+%s')-${{ steps.time.outputs.time }})) seconds" >> $GITHUB_OUTPUT
+           echo "The time elapsed:$(($(date '+%s')-${{ steps.step1.outputs.step1 }})) seconds" >> report.log
     - name: Upload report
       uses: actions/upload-artifact@v3
       with:
